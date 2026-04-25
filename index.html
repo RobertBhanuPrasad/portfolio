@@ -78,9 +78,17 @@
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            left: -7.5px;
+            left: 8.5px;
             top: 0;
             background: linear-gradient(135deg, #2563eb, #38bdf8);
+            z-index: 10;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline-item::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
         
         .skill-bar {
@@ -189,7 +197,7 @@
     
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+        <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between">
             <div class="md:w-1/2 mb-12 md:mb-0">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Robert</span></h1>
                 <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">Full-Stack Engineer building fast, scalable, and production-ready web products</h2>
@@ -210,20 +218,36 @@
                     <a href="https://www.linkedin.com/in/robert-bhanu-prasad-034454213/" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-blue-600">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <!-- <a href="#" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-blue-400">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-white/5 backdrop-blur-md border border-white/10 hover:bg-pink-600">
-                        <i class="fab fa-dribbble"></i>
-                    </a> -->
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
+            <div class="md:w-1/2 flex justify-center mb-12 md:mb-0">
                 <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-40"></div>
+                    <!-- Tech labels to match friend's style -->
+                    <div class="absolute -top-6 -left-2 font-mono text-[10px] md:text-xs text-primary/80 animate-pulse tracking-widest bg-dark/50 px-2 py-1 rounded border border-white/5 backdrop-blur-sm z-10">
+                        SYSTEM_ONLINE_
+                    </div>
+                    <!-- <div class="absolute -top-6 -right-2 font-mono text-[10px] md:text-xs text-secondary/80 tracking-widest bg-dark/50 px-2 py-1 rounded border border-white/5 backdrop-blur-sm z-10">
+                        AI CORE: ONLINE
+                    </div> -->
+                    
+                    <!-- Coordinate/Decor elements for extra "shade" -->
+                    <!-- <div class="absolute -bottom-10 -right-2 font-mono text-[8px] md:text-[10px] text-secondary/60 select-none text-right">
+                        X: 118 <span class="text-primary/40 mx-1">/</span> Y: 042<br>
+                        DATA_STREAM: ACTIVE
+                    </div> -->
+                    <div class="absolute top-1/4 -left-8 text-primary/30 animate-pulse select-none">
+                        <i class="fas fa-plus text-[8px]"></i>
+                    </div>
+                    <div class="absolute bottom-1/3 -right-6 text-secondary/30 animate-pulse delay-500 select-none">
+                        <i class="fas fa-plus text-[10px]"></i>
+                    </div>
+
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-2xl opacity-30 animate-pulse"></div>
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-secondary/20 to-transparent blur-xl"></div>
+                    
                     <img src="Images/ai-robot.png" 
                          alt="AI Illustration" 
-                         class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
+                         class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating shadow-2xl shadow-primary/20">
                 </div>
             </div>
         </div>
@@ -280,76 +304,71 @@
             <!-- Experience Timeline -->
             <div class="mt-20">
                 <h3 class="text-2xl font-bold mb-8 text-center">My <span class="gradient-text">Experience</span></h3>
-                <div class="relative max-w-6xl mx-auto">
-                    <div class="absolute left-1/2 h-full w-0.5 bg-slate-700 transform -translate-x-1/2"></div>
-                    
-                    <div class="mb-12 flex items-center w-full timeline-item">
-                        <div class="order-1 w-6/12"></div>
-<div class="order-1 w-1/12 flex items-center">
-  <div class="h-0.5 w-full bg-gradient-to-r from-primary to-secondary"></div>
-</div>
-                        <div class="order-1 w-4/12 px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg">
-                            <h4 class="text-lg font-bold mb-2">Software Developer</h4>
-                            <p class="text-sm text-muted mb-2">Techved Consultancy pvt. ltd. • Jan 2025 - Present</p>
-                            <ul class="text-slate-300 list-disc pl-5 space-y-2">
-                                <li>Building enterprise-grade education management modules using React, Next.js, NestJS, and PostgreSQL.</li>
-
-                                <li>Designed backend-driven filtering and reporting systems using JSONB queries and optimized SQL pipelines, improving performance and data accuracy.</li>
-
-                                <li>Implemented secure role-based access control (RBAC) and tenant isolation using Supabase and Keycloak.</li>
-
-                                <li>Developed large-scale multi-step form workflows with React Hook Form and Zod, including advanced validation and backend synchronization.</li>
-
-                                <li>Optimized database performance using Views, CTEs, joins, and query tuning for production reporting workloads.</li>
-
-                                <li>Led major refactors to improve API consistency, frontend stability, and long-term maintainability.</li>
-                            </ul>
+                <div class="relative max-w-6xl mx-auto px-4 md:px-0">
+                    <div class="absolute left-6 md:left-1/2 h-full w-0.5 bg-slate-700 transform md:-translate-x-1/2"></div>
+                                   <!-- Item 1 (Software Developer) -->
+                    <div class="mb-12 flex flex-col md:flex-row items-center w-full timeline-item relative">
+                        <!-- Desktop Spacer -->
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <!-- Content Side -->
+                        <div class="w-full md:w-1/2 flex items-center relative">
+                            <!-- Desktop Connector -->
+                            <div class="hidden md:block w-12 h-0.5 bg-gradient-to-r from-primary to-secondary"></div>
+                            <div class="w-full ml-10 md:ml-0 px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg card-hover">
+                                <h4 class="text-lg font-bold mb-1 text-white">Software Developer</h4>
+                                <p class="text-[10px] md:text-xs text-muted mb-2 font-mono">Techved Consultancy pvt. ltd. • Jan 2025 - Present</p>
+                                <ul class="text-slate-300 list-disc pl-5 space-y-1 text-sm">
+                                    <li>Building enterprise-grade education management modules using React, Next.js, and NestJS.</li>
+                                    <li>Designed backend-driven filtering and reporting systems using JSONB and SQL.</li>
+                                    <li>Implemented secure role-based access control (RBAC) using Supabase and Keycloak.</li>
+                                    <li>Developed large-scale multi-step form workflows with React Hook Form and Zod.</li>
+                                    <li>Optimized database performance using Views, CTEs, and query tuning.</li>
+                                    <li>Led major refactors to improve API consistency and maintainability.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="mb-12 flex items-center w-full timeline-item">
-                        <div class="order-1 w-6/12 px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg">
-                            <h4 class="text-lg font-bold mb-2">Full Stack Developer - Intern</h4>
-                            <p class="text-sm text-muted mb-2">Sumeru Software Solutions • Jan 2024 – Dec 2024</p>
-                            <ul class="text-slate-300 list-disc pl-5 space-y-2">
-                                <li>Built frontend features using React and modern JavaScript for real production applications.</li>
-
-                                <li>Developed complete internationalization (i18n) and translation system supporting dynamic language switching.</li>
-
-                                <li>Created reusable UI components, dynamic tables, and complex form workflows.</li>
-
-                                <li>Integrated REST APIs and optimized frontend data flow and rendering performance.</li>
-
-                                <li>Collaborated with senior developers through Git workflows, code reviews, and production debugging.</li>
-                            </ul>
+                                 <!-- Item 2 (Full Stack Developer) -->
+                    <div class="mb-12 flex flex-col md:flex-row-reverse items-center w-full timeline-item relative">
+                        <!-- Desktop Spacer -->
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <!-- Content Side -->
+                        <div class="w-full md:w-1/2 flex items-center flex-row-reverse relative">
+                            <!-- Desktop Connector -->
+                            <div class="hidden md:block w-12 h-0.5 bg-gradient-to-l from-primary to-secondary"></div>
+                            <div class="w-full ml-10 md:ml-0 px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg card-hover">
+                                <h4 class="text-lg font-bold mb-1 text-white">Full Stack Developer</h4>
+                                <p class="text-[10px] md:text-xs text-muted mb-2 font-mono">Sumeru Software Solutions • Jan 2024 – Dec 2024</p>
+                                <ul class="text-slate-300 list-disc pl-5 space-y-1 text-sm">
+                                    <li>Built frontend features using React and modern JavaScript.</li>
+                                    <li>Developed i18n and translation system supporting dynamic switching.</li>
+                                    <li>Created reusable UI components and complex form workflows.</li>
+                                    <li>Integrated REST APIs and optimized frontend rendering performance.</li>
+                                    <li>Collaborated through Git workflows, code reviews, and production debugging.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="order-1 w-1/12 flex items-center">
-  <div class="h-0.5 w-full bg-gradient-to-r from-primary to-secondary"></div>
-</div>
-                        <div class="order-1 w-7/12"></div>
                     </div>
-                    
-                    <div class="mb-12 flex items-center w-full timeline-item">
-                        <div class="order-1 w-6/12"></div>
-                        <div class="order-1 w-1/12 flex items-center">
-  <div class="h-0.5 w-full bg-gradient-to-r from-primary to-secondary"></div>
-</div>
-                        <div class="order-1 w-4/12 px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg">
-                            <h4 class="text-lg font-bold mb-2">UI Designer & Catalog Analyst - Intern</h4>
-                            <p class="text-sm text-muted mb-2">InfiTronics • Apr 2023 – Aug 2023</p>
-                            <ul class="text-slate-300 list-disc pl-5 space-y-2">
-                                <li>Designed and developed a responsive WordPress-based company website with focus on usability and clean UI layout.</li>
-
-                                <li>Created wireframes, UI mockups, and interactive prototypes to improve user experience across desktop and mobile devices.</li>
-
-                                <li>Managed and optimized product catalogs, ensuring structured data organization and accurate content presentation.</li>
-
-                                <li>Applied SEO best practices to improve product discoverability and website search performance.</li>
-
-                                <li>Collaborated with cross-functional teams to align design requirements with business goals and branding guidelines.</li>
-
-                                <li>Gained hands-on experience in UI design, frontend layout implementation, content management, and real-world product workflows.</li>
-                            </ul>
+                             <!-- Item 3 (UI Designer) -->
+                    <div class="mb-12 flex flex-col md:flex-row items-center w-full timeline-item relative">
+                        <!-- Desktop Spacer -->
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <!-- Content Side -->
+                        <div class="w-full md:w-1/2 flex items-center relative">
+                            <!-- Desktop Connector -->
+                            <div class="hidden md:block w-12 h-0.5 bg-gradient-to-r from-primary to-secondary"></div>
+                            <div class="w-full ml-10 md:ml-0 px-4 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg shadow-lg card-hover">
+                                <h4 class="text-lg font-bold mb-1 text-white">UI Designer & Catalog Analyst - Intern</h4>
+                                <p class="text-[10px] md:text-xs text-muted mb-2 font-mono">InfiTronics • Apr 2023 – Aug 2023</p>
+                                <ul class="text-slate-300 list-disc pl-5 space-y-1 text-sm">
+                                    <li>Developed a responsive WordPress-based company website.</li>
+                                    <li>Created wireframes, UI mockups, and interactive prototypes.</li>
+                                    <li>Managed product catalogs, ensuring structured data organization.</li>
+                                    <li>Applied SEO best practices to improve website search performance.</li>
+                                    <li>Collaborated with teams to align design requirements with business goals.</li>
+                                    <li>Gained hands-on experience in UI design, frontend layout implementation, content management, and real-world product workflows.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
